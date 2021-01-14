@@ -11,6 +11,7 @@ export default async (req, res) => {
 
     switch (method) {
         case 'GET':
+            /* Read ID */
             try {
                 const note = await Note.findById(id);
 
@@ -24,6 +25,7 @@ export default async (req, res) => {
             }
             break;
         case 'PUT':
+            /* UPDATE */
             try {
                 const note = await Note.findByIdAndUpdate(id, req.body, {
                     new: true,
@@ -40,6 +42,7 @@ export default async (req, res) => {
             }
             break;
         case 'DELETE':
+            /* DELETE */
             try {
                 const deletedNote = await Note.deleteOne({ _id: id });
 
